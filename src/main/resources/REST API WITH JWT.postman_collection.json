@@ -1,0 +1,473 @@
+{
+	"info": {
+		"_postman_id": "7905e24e-f985-4f1b-ae4e-b4335d537672",
+		"name": "REST API WITH JWT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23893141"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "USERS",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer_eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJWYXN5bCIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNjY4Nzc1NjU0LCJleHAiOjE2Njg3NzkyNTR9.YNAQaD8Cd10Bh-8ovn4607qbTmrKZ6HZrQrgX9_wp50",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8070/api/v1/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USER BY ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer_eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJWYXN5bCIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNjY4Nzc1NjU0LCJleHAiOjE2Njg3NzkyNTR9.YNAQaD8Cd10Bh-8ovn4607qbTmrKZ6HZrQrgX9_wp50",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8070/api/v1/users/222",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"222"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FILES",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer_eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJWYXN5bCIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNjY4Nzc1NjU0LCJleHAiOjE2Njg3NzkyNTR9.YNAQaD8Cd10Bh-8ovn4607qbTmrKZ6HZrQrgX9_wp50",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8070/api/v1/files",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"api",
+								"v1",
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EVENTS",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer_eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJWYXN5bCIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNjY4Nzc1NjU0LCJleHAiOjE2Njg3NzkyNTR9.YNAQaD8Cd10Bh-8ovn4607qbTmrKZ6HZrQrgX9_wp50",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8070/api/v1/events",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"api",
+								"v1",
+								"events"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EVENT BY ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer_eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJWYXN5bCIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNjY4Nzc1NjU0LCJleHAiOjE2Njg3NzkyNTR9.YNAQaD8Cd10Bh-8ovn4607qbTmrKZ6HZrQrgX9_wp50",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8070/api/v1/events/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"api",
+								"v1",
+								"events",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FILE",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "POST USER",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer_eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJWYXN5bCIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNjY4Nzc4NzQ3LCJleHAiOjE2Njg3ODIzNDd9.ME7fXxqGwZ2VunNc1UizKaeijk6l5j5ZXw4P5dXxvKw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"Jony\",\n    \"password\": \"testUser\",\n    \"status\": \"ACTIVE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8070/api/v1/users/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST FILE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer_eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJWYXN5bCIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNjY4Nzc4NzQ3LCJleHAiOjE2Njg3ODIzNDd9.ME7fXxqGwZ2VunNc1UizKaeijk6l5j5ZXw4P5dXxvKw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filename\":\"cat\",\n    \"location\":\"/Users/niqitagrigorivich/IdeaProjects/cat.jpg\",\n    \"status\":\"ACTIVE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8070/api/v1/files/upload",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"api",
+								"v1",
+								"files",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST EVENT",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer_eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNeWNoYWlsbyIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfTU9ERVJBVE9SIl0sImlhdCI6MTY2ODc3OTczOCwiZXhwIjoxNjY4NzgzMzM4fQ.74TbA75I_CV8nCGJvm9QkXzwKv3-XM2XvTBKvKFE_uA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"eventName\": \"Copied a cat\",\n        \"user\": {\n            \"id\": 7,\n            \"username\": \"Mykyta\"\n        },\n        \"file\": {\n            \"id\": 4,\n            \"filename\": \"cat\",\n            \"location\": \"/Users/niqitagrigorivich/IdeaProjects/cat.jpg\",\n            \"status\": \"ACTIVE\"\n        },\n        \"status\": \"ACTIVE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8070/api/v1/events",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"api",
+								"v1",
+								"events"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PUT",
+			"item": [
+				{
+					"name": "USER",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer_eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJWYXN5bCIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNjY4NzgwMjY0LCJleHAiOjE2Njg3ODM4NjR9.ao4c82VkUcpnhhQyPaeHJOo1g22hmSHaXQXjwSRr2HA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"8\",\n    \"username\":\"Ivanko\",\n    \"password\":\"datart\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8070/api/v1/users/",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FILE",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer_eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJWYXN5bCIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNjY4NzgwMjY0LCJleHAiOjE2Njg3ODM4NjR9.ao4c82VkUcpnhhQyPaeHJOo1g22hmSHaXQXjwSRr2HA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":4,\n    \"filename\":\"gingercat\",\n    \"location\":\"/Users/niqitagrigorivich/IdeaProjects/gingercat.jpg\",\n    \"status\":\"ACTIVE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8070/api/v1/files/upload",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"api",
+								"v1",
+								"files",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EVENT",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer_eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJWYXN5bCIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNjY4NzgwMjY0LCJleHAiOjE2Njg3ODM4NjR9.ao4c82VkUcpnhhQyPaeHJOo1g22hmSHaXQXjwSRr2HA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":9,\n    \"eventName\": \"Copied a cat\",\n        \"user\": {\n            \"id\": 14,\n            \"username\": \"Mychailo\"\n        },\n        \"file\": {\n            \"id\": 4,\n            \"filename\": \"gingercat\",\n            \"location\": \"/Users/niqitagrigorivich/IdeaProjects/gingercat.jpg\",\n            \"status\": \"ACTIVE\"\n        },\n        \"status\": \"ACTIVE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8070/api/v1/events/9",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"api",
+								"v1",
+								"events",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DELETE",
+			"item": [
+				{
+					"name": "USER",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer_eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJWYXN5bCIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNjY4NzgwMjY0LCJleHAiOjE2Njg3ODM4NjR9.ao4c82VkUcpnhhQyPaeHJOo1g22hmSHaXQXjwSRr2HA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8070/api/v1/users/13",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FILE",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer_eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJWYXN5bCIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNjY4NzgwMjY0LCJleHAiOjE2Njg3ODM4NjR9.ao4c82VkUcpnhhQyPaeHJOo1g22hmSHaXQXjwSRr2HA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8070/api/v1/files/catred",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"api",
+								"v1",
+								"files",
+								"catred"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EVENT",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer_eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJWYXN5bCIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNjY4NzgwMjY0LCJleHAiOjE2Njg3ODM4NjR9.ao4c82VkUcpnhhQyPaeHJOo1g22hmSHaXQXjwSRr2HA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8070/api/v1/events/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"api",
+								"v1",
+								"events",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
