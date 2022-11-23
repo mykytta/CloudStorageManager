@@ -4,6 +4,7 @@ import com.mykyta.springrestapi.dto.FileDto;
 import com.mykyta.springrestapi.model.File;
 import com.mykyta.springrestapi.service.FileService;
 import com.mykyta.springrestapi.utils.ContentTypeChecker;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -15,13 +16,9 @@ import java.io.ByteArrayOutputStream;
 
 @RestController
 @RequestMapping(value = "/api/v1/files")
+@AllArgsConstructor
 public class FileRestControllerV1 {
     private final FileService fileService;
-
-    @Autowired
-    public FileRestControllerV1(FileService fileService) {
-        this.fileService = fileService;
-    }
 
     @PostMapping(value = "/upload")
     public ResponseEntity<?> upload(@RequestBody FileDto file){
@@ -56,7 +53,7 @@ public class FileRestControllerV1 {
         return new ResponseEntity<>(fileService.listFiles(), HttpStatus.OK);
     }
 
-    @DeleteMapping("{filename}")
+    @DeleteMapping("/{filename}")
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_MODERATOR')")
     public ResponseEntity<?> delete(@PathVariable(name = "filename") String filename){
         fileService.delete(filename);

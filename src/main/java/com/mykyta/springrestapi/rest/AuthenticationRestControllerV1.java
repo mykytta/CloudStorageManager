@@ -4,6 +4,7 @@ import com.mykyta.springrestapi.dto.AuthenticationRequestDto;
 import com.mykyta.springrestapi.model.User;
 import com.mykyta.springrestapi.security.jwt.JwtTokenProvider;
 import com.mykyta.springrestapi.service.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,6 +22,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/api/v1/auth")
+@AllArgsConstructor
 public class AuthenticationRestControllerV1 {
 
     private final AuthenticationManager authenticationManager;
@@ -28,13 +30,6 @@ public class AuthenticationRestControllerV1 {
     private final JwtTokenProvider jwtTokenProvider;
 
     private final UserService userService;
-
-    @Autowired
-    public AuthenticationRestControllerV1(AuthenticationManager authenticationManager, JwtTokenProvider jwtTokenProvider, UserService userService) {
-        this.authenticationManager = authenticationManager;
-        this.jwtTokenProvider = jwtTokenProvider;
-        this.userService = userService;
-    }
 
     @PostMapping("login")
     public ResponseEntity login(@RequestBody AuthenticationRequestDto  requestDto) {

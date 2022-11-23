@@ -6,6 +6,7 @@ import com.mykyta.springrestapi.model.File;
 import com.mykyta.springrestapi.model.Status;
 import com.mykyta.springrestapi.repository.FileRepository;
 import com.mykyta.springrestapi.service.FileService;
+import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,21 +14,17 @@ import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.util.List;
 
 @Service
 @Slf4j
+@AllArgsConstructor
 public class FileServiceImpl implements FileService {
     private final AmazonS3 s3client;
 
     private final FileRepository fileRepository;
 
     private final String bucketName = "vasylkitaws";
-
-    @Autowired
-    public FileServiceImpl(AmazonS3 s3client, FileRepository fileRepository) {
-        this.s3client = s3client;
-        this.fileRepository = fileRepository;
-    }
 
     public void createBucket() {
 
@@ -61,9 +58,13 @@ public class FileServiceImpl implements FileService {
         ObjectListing objects = s3client.listObjects(bucketName);
         StringBuilder summary = new StringBuilder();
         for (S3ObjectSummary objectSummary : objects.getObjectSummaries()) {
-            summary.append(objectSummary.getKey());
+            summary.append(objectSummary.getKey()).append('\n');
         }
         return summary;
+    }
+    @Override
+    public List<File> getAll() {
+        return fileRepository.findAll();
     }
 
 

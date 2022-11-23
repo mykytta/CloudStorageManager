@@ -1,12 +1,12 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.7.5'
-    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${springDependencyManagmentVersion}"
 }
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = "${javaVersion}"
 
 configurations {
     compileOnly {
@@ -24,14 +24,15 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.flywaydb:flyway-core'
     implementation 'org.flywaydb:flyway-mysql'
-    implementation group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.12.341'
-    implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+    implementation "com.amazonaws:aws-java-sdk:${amazonAwsVersion}"
+    implementation "io.jsonwebtoken:jjwt:${jsonJwtVersion}"
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.mysql:mysql-connector-j'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
-}
+    testImplementation "junit:junit:${junitVersion}"
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '4.9.0'}
 
 tasks.named('test') {
     useJUnitPlatform()

@@ -5,6 +5,7 @@ import com.mykyta.springrestapi.security.jwt.JwtUser;
 import com.mykyta.springrestapi.security.jwt.JwtUserFactory;
 import com.mykyta.springrestapi.service.UserService;
 import com.mykyta.springrestapi.service.impl.UserServiceImpl;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,14 +14,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class JwtUserDetailsService implements UserDetailsService {
 
     private final UserService userService;
-
-    @Autowired
-    public JwtUserDetailsService(@Lazy UserService userService) {
-        this.userService = userService;
-    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

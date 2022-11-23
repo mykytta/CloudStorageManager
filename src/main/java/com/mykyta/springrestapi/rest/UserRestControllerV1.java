@@ -6,6 +6,7 @@ import com.mykyta.springrestapi.dto.UserUpdateDto;
 import com.mykyta.springrestapi.model.Status;
 import com.mykyta.springrestapi.model.User;
 import com.mykyta.springrestapi.service.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,20 +20,14 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/api/v1/users")
+@AllArgsConstructor
 public class UserRestControllerV1 {
 
     private final UserService userService;
 
     private final BCryptPasswordEncoder passwordEncoder;
 
-    @Autowired
-    public UserRestControllerV1(UserService userService, BCryptPasswordEncoder passwordEncoder) {
-        this.userService = userService;
-        this.passwordEncoder = passwordEncoder;
-    }
-
-
-    @GetMapping(value = "{id}")
+    @GetMapping(value = "/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_MODERATOR')")
     public ResponseEntity<?> getUserById(@PathVariable(name = "id") Long id){
         if(userService.findById(id).isEmpty()){
@@ -43,7 +38,7 @@ public class UserRestControllerV1 {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @GetMapping()
+    @GetMapping
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_MODERATOR')")
     public ResponseEntity<List<AdminUserDto>> getAllUsers(){
         List<AdminUserDto> users = userService.getAll().stream()
@@ -51,7 +46,7 @@ public class UserRestControllerV1 {
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
-    @PostMapping(value = "create")
+    @PostMapping(value = "/create")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity createUser(@RequestBody UserRegistrationDto userRegistrationDto){
         User userReg = userRegistrationDto.toUser();
@@ -59,7 +54,7 @@ public class UserRestControllerV1 {
         return new ResponseEntity<>(UserRegistrationDto.fromUser(userReg), HttpStatus.OK);
     }
 
-    @PutMapping(value = "{id}")
+    @PutMapping(value = "/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity updateUser(@RequestBody UserUpdateDto user, @PathVariable(name = "id") Long id){
         Optional<User> userUpdate = userService.findById(id);
@@ -73,7 +68,7 @@ public class UserRestControllerV1 {
         return new ResponseEntity<>("We cannot find this user, please try to enter the correct id", HttpStatus.NOT_FOUND);
     }
 
-    @DeleteMapping(value = "{id}")
+    @DeleteMapping(value = "/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity deleteUserById(@PathVariable(name = "id") Long id){
         Optional<User> user = userService.findById(id);

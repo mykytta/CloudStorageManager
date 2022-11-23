@@ -1,11 +1,15 @@
 package com.mykyta.springrestapi.rest;
 
+import com.amazonaws.services.acmpca.model.InvalidRequestException;
 import com.mykyta.springrestapi.dto.EventDto;
 import com.mykyta.springrestapi.model.Event;
+import com.mykyta.springrestapi.model.File;
 import com.mykyta.springrestapi.model.Status;
+import com.mykyta.springrestapi.model.User;
 import com.mykyta.springrestapi.service.EventService;
 import com.mykyta.springrestapi.service.FileService;
 import com.mykyta.springrestapi.service.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,23 +21,15 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping(value = "/api/v1/events")
 public class EventRestControllerV1 {
 
     private final EventService eventService;
-
     private final UserService userService;
-
     private final FileService fileService;
 
-    @Autowired
-    public EventRestControllerV1(EventService eventService, UserService userService, FileService fileService) {
-        this.eventService = eventService;
-        this.userService = userService;
-        this.fileService = fileService;
-    }
-
-    @GetMapping(value = "{id}")
+    @GetMapping("/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_MODERATOR')")
     public ResponseEntity<?> getEventById(@PathVariable(name = "id") Long id){
         if(eventService.getById(id).isPresent()){
@@ -44,7 +40,7 @@ public class EventRestControllerV1 {
         return new ResponseEntity<>("We cannot find this event, please try to enter the correct id", HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping()
+    @GetMapping
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_MODERATOR')")
     public ResponseEntity<List<EventDto>> getAllEvents(){
         var events = eventService.getAll().stream()
@@ -52,7 +48,7 @@ public class EventRestControllerV1 {
         return new ResponseEntity<>(events, HttpStatus.OK);
     }
 
-    @PostMapping()
+    @PostMapping
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_MODERATOR')")
     public ResponseEntity<?> createEvent(@RequestBody EventDto event){
         event.setStatus(Status.ACTIVE);
@@ -66,7 +62,7 @@ public class EventRestControllerV1 {
         return new ResponseEntity<>(event.toEvent(), HttpStatus.OK);
     }
 
-    @PutMapping(value = "{id}")
+    @PutMapping("/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_MODERATOR')")
     public ResponseEntity<?> updateEvent(@RequestBody EventDto event, @PathVariable(name = "id") Long id){
         Optional<Event> eventToUpdate = eventService.getById(id);
@@ -81,9 +77,9 @@ public class EventRestControllerV1 {
         return new ResponseEntity<>("We cannot find this event, please try to enter the correct id", HttpStatus.NOT_FOUND);
     }
 
-    @DeleteMapping(value = "{id}")
+    @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_MODERATOR')")
-    public ResponseEntity<?> deleteUserById(@PathVariable(name = "id") Long id){
+    public ResponseEntity<?> deleteEventById(@PathVariable(name = "id") Long id){
         Optional<Event> event = eventService.getById(id);
         if(event.isPresent()){
             Event eventToDelete = event.get();
